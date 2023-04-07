@@ -55,7 +55,6 @@ public class DatabasePropertiesUtil {
      */
     public static String getValueByKey(String key) {
         String value = mapDBProperties.get(key);
-        System.out.println(value);
         return value;
     }
 
