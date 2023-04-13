@@ -8,6 +8,9 @@
 - **JDK:** 17
 - **Database:** MySQL (file database test có sẵn trong thư mục [database/generic-repositoy-example.sql](https://github.com/buiquanghieu2910/Java_Web_Example/blob/master/Configuration-Generic-Hibernate-Repository/database/generic-repositoy-example.sql))
 
+## Demo_Upload_Image_Spring_Boot
+- **Description:** Upload image
+
 ## Minio-Spring-Boot-Example
 - **Description:** Build server upload file sử dụng Spring boot + MinIO server
 - **Technology:** 
