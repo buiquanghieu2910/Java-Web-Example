@@ -1,0 +1,42 @@
+version: "3"
+services:
+    webserver:
+        container_name: webserver
+        depends_on:
+          - back-end-1
+          - front-end-1
+        image: nginx:latest
+        ports:
+          - 80:80
+        #  - 443:443
+        restart: always
+        volumes:
+          - ./nginx/conf/:/etc/nginx/conf.d/:ro
+          
+    back-end-1:
+        build: ./Test-Spring-Nginx
+        container_name: back-end-1
+        restart: unless-stopped
+        working_dir: /app
+        volumes: 
+          - ./Test-Spring-Nginx/:/app
+        environment:
+          - TZ=Asia/Ho_Chi_Minh
+          
+    front-end-1:
+        build: ./test-vue-nginx
+        container_name: front-end-1
+        depends_on:
+          - back-end-1
+        working_dir: /app
+        volumes:
+          - ./test-vue-nginx/:/app
+          - /app/node_modules
+        #ports:
+          #development
+        #  - '3000:8080'
+          #production
+          #- '3000:80'
+        restart: unless-stopped
+        environment:
+          - TZ=Asia/Ho_Chi_Minh
