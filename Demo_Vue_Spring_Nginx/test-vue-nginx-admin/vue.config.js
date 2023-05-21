@@ -1,7 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
-  // publicPath: '/admin/',
   // configureWebpack: {
   //   entry: "./src/main.js",
   //   devServer: {
@@ -17,7 +16,5 @@ module.exports = defineConfig({
   devServer: {
     hot: true,
     allowedHosts: "all",
-    compress: true,
-    disableHostCheck: true,
   },
 })

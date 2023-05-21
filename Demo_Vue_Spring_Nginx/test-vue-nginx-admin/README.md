@@ -1,4 +1,4 @@
-# test-vue-nginx-admin
+# test-vue-nginx
 
 ## Project setup
 ```

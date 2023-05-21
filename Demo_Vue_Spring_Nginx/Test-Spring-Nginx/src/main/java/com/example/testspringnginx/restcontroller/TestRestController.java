@@ -18,10 +18,17 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/test")
 public class TestRestController {
-    @GetMapping
-    public ResponseEntity<?> test() {
+    @GetMapping("client")
+    public ResponseEntity<?> client() {
         Map<String, String> map = new HashMap<>();
-        map.put("fullname", "Bùi Quang Hiếu");
+        map.put("fullname", "Bùi Quang Hiếu - Client");
+        return ResponseEntity.ok(map);
+    }
+
+    @GetMapping("admin")
+    public ResponseEntity<?> admin() {
+        Map<String, String> map = new HashMap<>();
+        map.put("fullname", "Bùi Quang Hiếu - Admin");
         return ResponseEntity.ok(map);
     }
 }

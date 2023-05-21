@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('/api/test').then((resp) => {
+    axios.get('/api/test/client').then((resp) => {
       console.log(resp);
       this.msg = resp.data.fullname;
     }).catch((error) => {

@@ -15,6 +15,6 @@ module.exports = defineConfig({
   // },
   devServer: {
     hot: true,
-    allowedHosts: "all"
+    allowedHosts: "all",
   },
 })

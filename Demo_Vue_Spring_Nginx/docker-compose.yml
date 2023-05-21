@@ -3,31 +3,39 @@ version: "3.7"
 services:
     nginx:
         container_name: nginx
+        depends_on:
+          - front-end-1
+          - front-end-2
         image: nginx:latest
         restart: unless-stopped
         ports:
             - 80:80
         volumes:
             - ./nginx/conf:/etc/nginx/conf.d
-            - ./test-vue-nginx-admin/dist/:/usr/share/nginx/html/admin
-            - ./test-vue-nginx/dist:/usr/share/nginx/html/client
 
     front-end-1:
         container_name: front-end-1
+        depends_on:
+          - back-end
         build:
           context: ./test-vue-nginx
           dockerfile: Dockerfile
+        ports:
+            - 8083:80
         volumes:
           - ./test-vue-nginx/:/app
           - /app/node_modules
 
     front-end-2:
         container_name: front-end-2
+        depends_on:
+          - front-end-1
+          - back-end
         build:
           context: ./test-vue-nginx-admin
           dockerfile: Dockerfile
         ports:
-          - "8083:80"
+          - 8084:80
         volumes:
           - ./test-vue-nginx-admin/:/app
           - /app/node_modules
